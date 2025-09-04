@@ -19,21 +19,21 @@ def test_estudiante_insertados(db_connection):
         count = cur.fetchone()[0]
         assert count == 10
 
-def test_maestros_insertados(db_connection):
+def test_maestro_insertados(db_connection):
     with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM maestros;")
+        cur.execute("SELECT COUNT(*) FROM maestro;")
         count = cur.fetchone()[0]
         assert count == 10
 
-def test_grupos_insertados(db_connection):
+def test_grupo_insertados(db_connection):
     with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM grupos;")
+        cur.execute("SELECT COUNT(*) FROM grupo;")
         count = cur.fetchone()[0]
         assert count == 10
 
-def test_inscripciones_insertados(db_connection):
+def test_inscripcion_insertados(db_connection):
     with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM inscripciones;")
+        cur.execute("SELECT COUNT(*) FROM inscripcion;")
         count = cur.fetchone()[0]
         assert count == 10  
 
