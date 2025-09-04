@@ -43,6 +43,24 @@ def test_asistencia_insertados(db_connection):
         count = cur.fetchone()[0]
         assert count == 10  
 
+#def test_structure(db_connection):
+#    sql = ''' 
+#            SELECT tablename FROM pg_tables 
+#            WHERE tablename 
+#            IN ('alumno', 'maestro', 'grupos',
+#            'inscripcion', 'asistencia');
+#          '''
+#    expected_tables = {'alumno', 'maestro',
+#                       'grupos', 'inscripcion',
+#                       'asistencia'}
+#    with db_connection.cursor() as cur:
+#        cur.execute(sql)
+#        result_tables = {row[0] for row in cur.fetchall()}
+#        msg = f'''Expected tables {expected_tables},
+#              but found {result_tables}'''
+#        assert result_tables == expected_tables, msg
+                
+
 def test_structure(db_connection):
     sql = ''' 
             SELECT tablename FROM pg_tables 
@@ -59,5 +77,3 @@ def test_structure(db_connection):
         msg = f'''Expected tables {expected_tables},
               but found {result_tables}'''
         assert result_tables == expected_tables, msg
-                
-        
