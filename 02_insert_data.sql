@@ -1,19 +1,19 @@
 
     -- Insertar alumnos
     INSERT INTO alumnos VALUES
-    ('A001', 'Ana Torres'),
-    ('A002', 'Luis Gómez'),
-    ('A003', 'María López'),
-    ('A004', 'Carlos Ruiz'),
-    ('A005', 'Laura Méndez'),
-    ('A006', 'Pedro Sánchez'),
-    ('A007', 'Sofía Díaz'),
-    ('A008', 'Jorge Ramírez'),
-    ('A009', 'Elena Castro'),
-    ('A010', 'Tomás Ortega');
+    ('182263', 'Ana Torres'),
+    ('182356', 'Luis Gómez'),
+    ('183355', 'María López'),
+    ('185655', 'Carlos Ruiz'),
+    ('186575', 'Laura Méndez'),
+    ('185665', 'Pedro Sánchez'),
+    ('186895', 'Sofía Díaz'),
+    ('189875', 'Jorge Ramírez'),
+    ('189775', 'Elena Castro'),
+    ('189878', 'Tomás Ortega');
 
     -- Insertar maestros
-    INSERT INTO maestros(nombre) VALUES
+    INSERT INTO profesores(nombre) VALUES
     ('Mtro. Juan Pérez'),
     ('Mtra. Carmen Silva'),
     ('Mtro. Diego Luna'),
@@ -40,9 +40,9 @@
 
     -- Inscripciones
     INSERT INTO inscripciones VALUES
-    ('A001', '20253S', 'T41A', '2025-08-01'),
-    ('A002', '20253S', 'T41A', '2025-08-01'),
-    ('A003', '20253S', 'T41B', '2025-08-01'),
+    ('182263', '20253S', 'T41A', '2025-08-01'),
+    ('182356', '20253S', 'T41A', '2025-08-01'),
+    ('183355', '20253S', 'T41B', '2025-08-01'),
     ('A004', '20253S', 'T41B', '2025-08-01'),
     ('A005', '20253S', 'T42A', '2025-08-01'),
     ('A006', '20253S', 'T42A', '2025-08-01'),
@@ -53,9 +53,9 @@
 
     -- Asistencia (algunos ausentes)
     INSERT INTO asistencia VALUES
-    ('A001', '20253S', 'T41A', '2025-09-01 08:00:00', TRUE),
-    ('A002', '20253S', 'T41A', '2025-09-01 08:00:00', FALSE),
-    ('A003', '20253S', 'T41B', '2025-09-01 10:00:00', TRUE),
+    ('182263', '20253S', 'T41A', '2025-09-01 08:00:00', TRUE),
+    ('182356', '20253S', 'T41A', '2025-09-01 08:00:00', FALSE),
+    ('183355', '20253S', 'T41B', '2025-09-01 10:00:00', TRUE),
     ('A004', '20253S', 'T41B', '2025-09-01 10:00:00', FALSE),
     ('A005', '20253S', 'T42A', '2025-09-01 12:00:00', TRUE),
     ('A006', '20253S', 'T42A', '2025-09-01 12:00:00', FALSE),
