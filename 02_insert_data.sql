@@ -1,6 +1,6 @@
 
     -- Insertar alumnos
-    INSERT INTO alumnos VALUES
+    INSERT INTO alumno VALUES
     ('A001', 'Ana Torres'),
     ('A002', 'Luis Gómez'),
     ('A003', 'María López'),
@@ -13,7 +13,7 @@
     ('A010', 'Tomás Ortega');
 
     -- Insertar maestros
-    INSERT INTO maestros(nombre) VALUES
+    INSERT INTO profesor(nombre) VALUES
     ('Mtro. Juan Pérez'),
     ('Mtra. Carmen Silva'),
     ('Mtro. Diego Luna'),
@@ -26,7 +26,7 @@
     ('Mtra. Teresa León');
 
     -- Insertar grupos
-    INSERT INTO grupos VALUES
+    INSERT INTO grupo VALUES
     ('20253S', 'T41A', 'Bases de Datos I', 1),
     ('20253S', 'T41B', 'Bases de Datos I', 2),
     ('20253S', 'T42A', 'Bases de Datos II', 3),
