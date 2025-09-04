@@ -1,0 +1,158 @@
+-- TABLA: Grupos
+CREATE TABLE Grupos (
+    id_grupo SERIAL PRIMARY KEY,
+    codigo VARCHAR(10) UNIQUE NOT NULL  
+);
+
+-- TABLA: Profesor
+CREATE TABLE Profesor (
+    id_profesor SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    departamento VARCHAR(100) NOT NULL
+);
+
+-- TABLA: Curso
+CREATE TABLE Curso (
+    id_curso SERIAL PRIMARY KEY,
+    nombre_curso VARCHAR(100) NOT NULL,
+    creditos INTEGER NOT NULL,
+    año INT NOT NULL,
+    id_profesor INTEGER,
+    FOREIGN KEY (id_profesor) REFERENCES Profesor(id_profesor)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+);
+
+-- TABLA: Alumnos
+CREATE TABLE Alumnos(
+    id_alumno SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    fecha_nacimiento DATE NOT NULL,
+    matricula INT UNIQUE NOT NULL,
+    correo VARCHAR(100) NOT NULL,
+    semestre INT NOT NULL,
+    id_grupo INTEGER,
+    FOREIGN KEY (id_grupo) REFERENCES Grupos(id_grupo)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- TABLA: Inscripción
+CREATE TABLE Inscripcion (
+    id_inscripcion SERIAL PRIMARY KEY,
+    id_alumno INTEGER NOT NULL,
+    id_curso INTEGER NOT NULL,
+    fecha DATE NOT NULL,
+    estado VARCHAR(100) NOT NULL,
+    FOREIGN KEY (id_alumno) REFERENCES Alumnos(id_alumno)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (id_curso) REFERENCES Curso(id_curso)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- TABLA: Asistencia
+CREATE TABLE Asistencia (
+    id_asistencia SERIAL PRIMARY KEY,
+    id_inscripcion INTEGER NOT NULL,
+    fecha DATE NOT NULL,
+    presente BOOLEAN NOT NULL,
+    FOREIGN KEY (id_inscripcion) REFERENCES Inscripcion(id_inscripcion)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Grupos
+INSERT INTO Grupos (codigo) VALUES ('S38A'), ('S38E'), ('T41A');
+
+-- Profesores
+INSERT INTO Profesor (nombre, apellidos, departamento) VALUES 
+('Juan', 'Pérez', 'Matemáticas'), 
+('María', 'González', 'Lenguas'), 
+('Carlos', 'Ramírez', 'Ciencias');
+
+-- Cursos
+INSERT INTO Curso (nombre_curso, creditos, año, id_profesor) VALUES 
+('Matemáticas I', 5, 2025, 1), 
+('Física II', 4, 2025, 3), 
+('Literatura', 3, 2025, 2);
+
+-- Alumnos  
+INSERT INTO Alumnos (nombre, apellidos, fecha_nacimiento, matricula, correo, semestre, id_grupo) VALUES 
+('Santiago', 'Ramírez', '2005-02-14', 1001, 'santiago.ramirez@correo.edu', 1, 1),
+('Valentina', 'Gómez', '2004-09-21', 1002, 'valentina.gomez@correo.edu', 1, 1),
+('Emiliano', 'Pérez', '2005-07-30', 1003, 'emiliano.perez@correo.edu', 1, 1),
+('Victoria', 'Luna', '2005-05-18', 1004, 'victoria.luna@correo.edu', 1, 1),
+('Diego', 'Martínez', '2004-11-11', 1005, 'diego.martinez@correo.edu', 2, 2),
+('Regina', 'Hernández', '2005-12-03', 1006, 'regina.hernandez@correo.edu', 2, 2),
+('Gabriel', 'Torres', '2005-04-27', 1007, 'gabriel.torres@correo.edu', 2, 2),
+('Isabella', 'Vargas', '2004-08-09', 1008, 'isabella.vargas@correo.edu', 2, 2),
+('Mateo', 'Morales', '2005-06-22', 1009, 'mateo.morales@correo.edu', 3, 3),
+('Sofía', 'Castillo', '2005-03-15', 1010, 'sofia.castillo@correo.edu', 3, 3),
+('Leonardo', 'Cruz', '2005-01-05', 1011, 'leonardo.cruz@correo.edu', 3, 3),
+('Mariana', 'Ortega', '2004-12-29', 1012, 'mariana.ortega@correo.edu', 3, 3);
+
+INSERT INTO Alumnos (nombre, apellidos, fecha_nacimiento, matricula, correo, semestre, id_grupo) VALUES
+('Camila', 'Navarro', '2005-02-18', 1013, 'camila.navarro@correo.edu', 1, 1),
+('Andrés', 'Pacheco', '2004-10-12', 1014, 'andres.pacheco@correo.edu', 1, 1),
+('Paula', 'Santos', '2005-03-25', 1015, 'paula.santos@correo.edu', 1, 2),
+('Joaquín', 'Fernández', '2005-07-01', 1016, 'joaquin.fernandez@correo.edu', 2, 2),
+('Elena', 'Ruiz', '2004-09-30', 1017, 'elena.ruiz@correo.edu', 2, 2),
+('Martín', 'Silva', '2005-05-19', 1018, 'martin.silva@correo.edu', 2, 2),
+('Natalia', 'Rojas', '2005-02-28', 1019, 'natalia.rojas@correo.edu', 3, 3),
+('Bruno', 'Mendoza', '2004-11-07', 1020, 'bruno.mendoza@correo.edu', 3, 3),
+('Lucía', 'Delgado', '2005-06-10', 1021, 'lucia.delgado@correo.edu', 3, 3),
+('Hugo', 'Cárdenas', '2005-08-04', 1022, 'hugo.cardenas@correo.edu', 3, 3);
+
+-- Inscripciones 
+INSERT INTO Inscripcion (id_alumno, id_curso, fecha, estado) VALUES 
+(1, 1, '2025-08-15', 'Activo'), 
+(2, 1, '2025-08-15', 'Activo'), 
+(3, 1, '2025-08-15', 'Activo'), 
+(4, 1, '2025-08-15', 'Activo'), 
+
+(5, 2, '2025-08-16', 'Activo'), 
+(6, 2, '2025-08-16', 'Activo'), 
+(7, 2, '2025-08-16', 'Activo'), 
+(8, 2, '2025-08-16', 'Activo'), 
+
+(9, 3, '2025-08-17', 'Activo'), 
+(10, 3, '2025-08-17', 'Activo'), 
+(11, 3, '2025-08-17', 'Activo'), 
+(12, 3, '2025-08-17', 'Activo');
+
+-- Asistencia
+INSERT INTO Asistencia (id_inscripcion, fecha, presente) VALUES 
+(1, '2025-09-01', TRUE), 
+(2, '2025-09-01', TRUE), 
+(3, '2025-09-01', FALSE), 
+(4, '2025-09-01', TRUE), 
+
+(5, '2025-09-01', TRUE), 
+(6, '2025-09-01', FALSE), 
+(7, '2025-09-01', TRUE), 
+(8, '2025-09-01', TRUE), 
+
+(9, '2025-09-01', TRUE), 
+(10, '2025-09-01', TRUE), 
+(11, '2025-09-01', FALSE), 
+(12, '2025-09-01', TRUE);
+
+-- Mostrar tablas
+SELECT 
+    c.nombre_curso AS "Materia", 
+    a.nombre || ' ' || a.apellidos AS "Alumno", 
+    a.matricula AS "Matrícula", 
+    COUNT(*) FILTER (WHERE asis.presente = FALSE) AS "Faltas" 
+FROM 
+    Curso c 
+JOIN Inscripcion i ON i.id_curso = c.id_curso 
+JOIN Alumnos a ON a.id_alumno = i.id_alumno 
+LEFT JOIN Asistencia asis ON asis.id_inscripcion = i.id_inscripcion 
+GROUP BY 
+    c.nombre_curso, a.id_alumno 
+ORDER BY 
+    c.nombre_curso, a.apellidos;
