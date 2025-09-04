@@ -1,6 +1,6 @@
 
     -- Insertar alumnos
-    INSERT INTO Estudiante VALUES
+    INSERT INTO estudiante VALUES
     ('1', 'Ana', 'Torres'),
     ('2', 'Luis', 'Gómez'),
     ('3', 'María', 'López'),
@@ -12,7 +12,7 @@
     ('9', 'Elena', 'Castro'),
     ('10', 'Tomás', 'Ortega');
     
-    INSERT INTO Maestros VALUES
+    INSERT INTO maestros VALUES
     ('1', 'Mtro. Juan', 'Pérez', 'matematicas'),
     ('2', 'Mtra. Carmen', 'Silva', 'español'),
     ('3', 'Mtro. Diego', 'Luna', 'historia'),
@@ -24,7 +24,7 @@
     ('9', 'Mtro. Iván', 'Cordero', 'etica'),
     ('10', 'Mtra. Teresa', 'León', 'ciencias');
     
-     INSERT INTO Grupo VALUES
+     INSERT INTO grupo VALUES
     ('T41A', '20253S', '1', 'Bases de Datos I'),
     ('T41B', '20253S', '2', 'Bases de Datos I'),
     ('T42A', '20253S', '3', 'Bases de Datos II'),
@@ -36,7 +36,7 @@
     ('T45A', '20253S', '9', 'PostgreSQL'),
     ('T45B', '20253S', '10', 'PostgreSQL');
     
-    INSERT INTO Inscripcion VALUES
+    INSERT INTO inscripcion VALUES
     ('1', 'T41A', '20253S', '2025-08-01'),
     ('2', 'T41A', '20253S', '2025-08-01'),
     ('3', 'T41A', '20253S', '2025-08-01'),
@@ -48,7 +48,7 @@
     ('9', 'T41A', '20253S', '2025-08-01'),
     ('10', 'T41A', '20253S', '2025-08-01');
     
-    INSERT INTO Asistencia VALUES
+    INSERT INTO asistencia VALUES
     ('1','T41A',  '20253S', '2025-09-01 08:00:00', TRUE),
     ('2', 'T41A','20253S', '2025-09-01 08:00:00', FALSE),
     ('3', 'T41B',  '20253S', '2025-09-01 10:00:00', TRUE),
