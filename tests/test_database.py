@@ -47,11 +47,11 @@ def test_structure(db_connection):
     sql = ''' 
             SELECT tablename FROM pg_tables 
             WHERE tablename 
-            IN ('alumnos', 'maestros', 'grupos',
-            'inscripciones', 'asistencia');
+            IN ('alumno', 'maestro', 'grupo',
+            'inscripcion', 'asistencia');
           '''
-    expected_tables = {'alumnos', 'maestros',
-                       'grupos', 'inscripciones',
+    expected_tables = {'alumno', 'maestro',
+                       'grupo', 'inscripcione',
                        'asistencia'}
     with db_connection.cursor() as cur:
         cur.execute(sql)
