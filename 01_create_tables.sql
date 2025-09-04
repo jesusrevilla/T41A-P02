@@ -1,17 +1,17 @@
-CREATE TABLE Estudiante (
+CREATE TABLE estudiante (
   id_estudiante INTEGER PRIMARY KEY,
   nombre TEXT NOT NULL,
   apellido TEXT NOT NULL
 );
 
-CREATE TABLE Maestros (
+CREATE TABLE maestros (
   id_profesor INTEGER PRIMARY KEY,
   nombre_profesor TEXT NOT NULL,
   apellido_profesor TEXT NOT NULL,
   departamento TEXT NOT NULL
 );
 
-CREATE TABLE Grupo (
+CREATE TABLE grupo (
   id_curso varchar(15),
   periodo varchar(15),
   id_profesor INT REFERENCES Maestros(id_profesor) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE Grupo (
 );
 
 
-CREATE TABLE Inscripcion (
+CREATE TABLE inscripcion (
   id_estudiante INT REFERENCES Estudiante(id_estudiante) NOT NULL,
   id_curso varchar(15),
   periodo varchar(15),
@@ -29,7 +29,7 @@ CREATE TABLE Inscripcion (
   FOREIGN KEY (id_curso, periodo) REFERENCES Grupo(id_curso, periodo)
 );
 
-CREATE TABLE Asistencia (
+CREATE TABLE asistencia (
   id_estudiante INT REFERENCES Estudiante(id_estudiante) NOT NULL,
   id_curso varchar(15) NOT NULL,
   periodo varchar(15) NOT NULL,
