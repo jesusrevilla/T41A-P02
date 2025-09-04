@@ -16,7 +16,7 @@ CREATE TABLE materia (
   id_materia SERIAL PRIMARY KEY,
   nombre_materia VARCHAR NOT NULL,
   horas INTEGER NOT NULL,
-  seccion TEXT NOT NULL,
+  --seccion TEXT NOT NULL,
   creditos INTEGER NOT NULL
 );
 
