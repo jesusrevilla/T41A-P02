@@ -50,5 +50,6 @@ CREATE TABLE asistencia (
   id_inscripcion INTEGER REFERENCES inscripcion(id_inscripcion)
         ON DELETE CASCADE                  
         ON UPDATE CASCADE, 
-  asistencia TIMESTAMP NOT NULL
+  asistencia TIMESTAMP NOT NULL,
+  presente BOOLEAN NOT NULL
 );
