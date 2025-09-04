@@ -1,4 +1,4 @@
-INSERT INTO alumnos VALUES
+INSERT INTO alumno VALUES
     ('100001', 'Ana', 'Torres'),
     ('100002', 'Luis' ,'Gómez'),
     ('100003', 'María', 'López'),
@@ -10,7 +10,7 @@ INSERT INTO alumnos VALUES
     ('100009', 'Elena' ,'Castro'),
     ('100010', 'Tomás', 'Ortega');
 
- INSERT INTO maestros(nombre) VALUES
+ INSERT INTO maestro VALUES
     ('200001', 'Mtro. Juan',' Pérez', 'ITI'),
     ('200002', 'Mtra. Carmen',' Silva', 'ITI'),
     ('200003', 'Mtro. Diego',' Luna', 'ITI'),
@@ -23,7 +23,7 @@ INSERT INTO alumnos VALUES
     ('200010', 'Mtra. Teresa',' León', 'ITI');
 
                            
-INSERT INTO inscripciones VALUES
+INSERT INTO materia VALUES
     ('01', 'Base de datos', '48', '8'),
     ('02', 'Matematicas', '48', '8'),
     ('03', 'Fisica', '48', '8'),
@@ -35,7 +35,7 @@ INSERT INTO inscripciones VALUES
     ('09', 'Programacion 2', '48', '8'),
     ('10', 'Programacion 3', '48', '8');
 
- INSERT INTO inscripciones VALUES
+ INSERT INTO grupos VALUES
     ('01', 'S38A', '01', '200001'),
     ('02', 'S38A', '02', '200002'),
     ('03', 'S38A', '03', '200003'),
@@ -47,7 +47,7 @@ INSERT INTO inscripciones VALUES
     ('09', 'T48A', '09', '200009'),
     ('10', 'T48A', '10', '200010');              
 
-   INSERT INTO inscripciones VALUES
+   INSERT INTO inscripcion VALUES
     ('01', '100001', '01', '20253S'),
     ('02', '100002', '02', '20253S'),
     ('03', '100003', '03', '20253S'),
