@@ -13,31 +13,31 @@ def db_connection():
     yield conn
     conn.close()
 
-def test_alumnos_insertados(db_connection):
+def test_alumno_insertado(db_connection):
     with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM alumnos;")
+        cur.execute("SELECT COUNT(*) FROM alumno;")
         count = cur.fetchone()[0]
         assert count == 10
 
-def test_maestros_insertados(db_connection):
+def test_maestros_insertado(db_connection):
     with db_connection.cursor() as cur:
         cur.execute("SELECT COUNT(*) FROM maestros;")
         count = cur.fetchone()[0]
         assert count == 10
 
-def test_grupos_insertados(db_connection):
+def test_grupos_insertado(db_connection):
     with db_connection.cursor() as cur:
         cur.execute("SELECT COUNT(*) FROM grupos;")
         count = cur.fetchone()[0]
         assert count == 10
 
-def test_inscripciones_insertados(db_connection):
+def test_inscripcion_insertado(db_connection):
     with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM inscripciones;")
+        cur.execute("SELECT COUNT(*) FROM inscripcion;")
         count = cur.fetchone()[0]
         assert count == 10  
 
-def test_asistencia_insertados(db_connection):
+def test_asistencia_insertado(db_connection):
     with db_connection.cursor() as cur:
         cur.execute("SELECT COUNT(*) FROM asistencia;")
         count = cur.fetchone()[0]
@@ -47,11 +47,11 @@ def test_structure(db_connection):
     sql = ''' 
             SELECT tablename FROM pg_tables 
             WHERE tablename 
-            IN ('alumnos', 'maestros', 'grupos',
-            'inscripciones', 'asistencia');
+            IN ('alumno', 'maestros', 'grupos',
+            'inscripcion', 'asistencia');
           '''
-    expected_tables = {'alumnos', 'maestros',
-                       'grupos', 'inscripciones',
+    expected_tables = {'alumno', 'maestros',
+                       'grupos', 'inscripcion',
                        'asistencia'}
     with db_connection.cursor() as cur:
         cur.execute(sql)
@@ -59,5 +59,3 @@ def test_structure(db_connection):
         msg = f'''Expected tables {expected_tables},
               but found {result_tables}'''
         assert result_tables == expected_tables, msg
-                
-        
