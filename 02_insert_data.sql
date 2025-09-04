@@ -1,66 +1,117 @@
 
-    -- Insertar alumnos
-    INSERT INTO alumnos VALUES
-    ('A001', 'Ana Torres'),
-    ('A002', 'Luis Gómez'),
-    ('A003', 'María López'),
-    ('A004', 'Carlos Ruiz'),
-    ('A005', 'Laura Méndez'),
-    ('A006', 'Pedro Sánchez'),
-    ('A007', 'Sofía Díaz'),
-    ('A008', 'Jorge Ramírez'),
-    ('A009', 'Elena Castro'),
-    ('A010', 'Tomás Ortega');
+INSERT INTO alumno (matricula, nombre, apellido, semestre) VALUES
+(1005, 'Luis', 'González', 'Primero'),
+(1006, 'María', 'Hernández', 'Tercero'),
+(1007, 'Jorge', 'Ramírez', 'Quinto'),
+(1008, 'Diana', 'Castro', 'Séptimo'),
+(1009, 'Paola', 'Morales', 'Octavo'),
+(1010, 'Felipe', 'Navarro', 'Segundo'),
+(1011, 'Sofía', 'Treviño', 'Tercero'),
+(1012, 'Andrés', 'Vega', 'Cuarto'),
+(1013, 'Lucía', 'Martínez', 'Sexto'),
+(1014, 'Iván', 'Domínguez', 'Octavo');
 
-    -- Insertar maestros
-    INSERT INTO maestros(nombre) VALUES
-    ('Mtro. Juan Pérez'),
-    ('Mtra. Carmen Silva'),
-    ('Mtro. Diego Luna'),
-    ('Mtra. Rosa Márquez'),
-    ('Mtro. Andrés Bello'),
-    ('Mtra. Julia Ríos'),
-    ('Mtro. Sergio Peña'),
-    ('Mtra. Alicia Torres'),
-    ('Mtro. Iván Cordero'),
-    ('Mtra. Teresa León');
 
-    -- Insertar grupos
-    INSERT INTO grupos VALUES
-    ('20253S', 'T41A', 'Bases de Datos I', 1),
-    ('20253S', 'T41B', 'Bases de Datos I', 2),
-    ('20253S', 'T42A', 'Bases de Datos II', 3),
-    ('20253S', 'T42B', 'Bases de Datos II', 4),
-    ('20253S', 'T43A', 'Diseño de BD', 5),
-    ('20253S', 'T43B', 'Diseño de BD', 6),
-    ('20253S', 'T44A', 'SQL Avanzado', 7),
-    ('20253S', 'T44B', 'SQL Avanzado', 8),
-    ('20253S', 'T45A', 'PostgreSQL', 9),
-    ('20253S', 'T45B', 'PostgreSQL', 10);
+INSERT INTO inscripcion (matricula, fecha) VALUES
+(1005, '2025-09-01'),
+(1006, '2025-09-01'),
+(1007, '2025-09-01'),
+(1008, '2025-09-01'),
+(1009, '2025-09-01'),
+(1010, '2025-09-01'),
+(1011, '2025-09-01'),
+(1012, '2025-09-01'),
+(1013, '2025-09-01'),
+(1014, '2025-09-01');
 
-    -- Inscripciones
-    INSERT INTO inscripciones VALUES
-    ('A001', '20253S', 'T41A', '2025-08-01'),
-    ('A002', '20253S', 'T41A', '2025-08-01'),
-    ('A003', '20253S', 'T41B', '2025-08-01'),
-    ('A004', '20253S', 'T41B', '2025-08-01'),
-    ('A005', '20253S', 'T42A', '2025-08-01'),
-    ('A006', '20253S', 'T42A', '2025-08-01'),
-    ('A007', '20253S', 'T42B', '2025-08-01'),
-    ('A008', '20253S', 'T42B', '2025-08-01'),
-    ('A009', '20253S', 'T43A', '2025-08-01'),
-    ('A010', '20253S', 'T43A', '2025-08-01');
 
-    -- Asistencia (algunos ausentes)
-    INSERT INTO asistencia VALUES
-    ('A001', '20253S', 'T41A', '2025-09-01 08:00:00', TRUE),
-    ('A002', '20253S', 'T41A', '2025-09-01 08:00:00', FALSE),
-    ('A003', '20253S', 'T41B', '2025-09-01 10:00:00', TRUE),
-    ('A004', '20253S', 'T41B', '2025-09-01 10:00:00', FALSE),
-    ('A005', '20253S', 'T42A', '2025-09-01 12:00:00', TRUE),
-    ('A006', '20253S', 'T42A', '2025-09-01 12:00:00', FALSE),
-    ('A007', '20253S', 'T42B', '2025-09-01 14:00:00', TRUE),
-    ('A008', '20253S', 'T42B', '2025-09-01 14:00:00', FALSE),
-    ('A009', '20253S', 'T43A', '2025-09-01 16:00:00', TRUE),
-    ('A010', '20253S', 'T43A', '2025-09-01 16:00:00', FALSE);
-    
+INSERT INTO maestro (nombre, apellido) VALUES
+('José', 'Cortés'),
+('Marina', 'Delgado'),
+('Ricardo', 'Pineda'),
+('Esther', 'Cabrera'),
+('Hugo', 'Salas'),
+('Nadia', 'Ortega'),
+('Alonso', 'Jiménez'),
+('Claudia', 'Peña'),
+('David', 'Santos'),
+('Brenda', 'Vargas');
+
+
+INSERT INTO materia (nombre) VALUES
+('Programación'),
+('Estadística'),
+('Álgebra'),
+('Historia'),
+('Literatura'),
+('Inglés'),
+('Redes'),
+('Filosofía'),
+('Economía'),
+('Ética');
+
+
+INSERT INTO grupo(grupo) VALUES
+('G21A'),
+('H22B'),
+('I23C'),
+('J24D'),
+('K25E'),
+('L26F'),
+('M27G'),
+('N28H'),
+('P29I'),
+('Q30J');
+
+
+INSERT INTO materia_grupo (id_materia, grupo) VALUES
+(5, 'G21A'),
+(6, 'H22B'),
+(7, 'I23C'),
+(8, 'J24D'),
+(9, 'K25E'),
+(10, 'L26F'),
+(1, 'M27G'),
+(2, 'N28H'),
+(3, 'P29I'),
+(4, 'Q30J');
+
+
+INSERT INTO maestro_materia (id_maestro, id_materia, grupo) VALUES
+(5, 5, 'G21A'),
+(6, 6, 'H22B'),
+(7, 7, 'I23C'),
+(8, 8, 'J24D'),
+(9, 9, 'K25E'),
+(10, 10, 'L26F'),
+(1, 1, 'M27G'),
+(2, 2, 'N28H'),
+(3, 3, 'P29I'),
+(4, 4, 'Q30J');
+
+
+INSERT INTO alumno_materia (matricula, id_materia, grupo) VALUES
+(1005, 5, 'G21A'),
+(1006, 6, 'H22B'),
+(1007, 7, 'I23C'),
+(1008, 8, 'J24D'),
+(1009, 9, 'K25E'),
+(1010, 10, 'L26F'),
+(1011, 1, 'M27G'),
+(1012, 2, 'N28H'),
+(1013, 3, 'P29I'),
+(1014, 4, 'Q30J');
+
+
+INSERT INTO asistencia (fecha, id_materia, id_alumno, asistencia) VALUES
+('2025-09-02', 5, 1005, TRUE),
+('2025-09-02', 6, 1006, FALSE),
+('2025-09-02', 7, 1007, TRUE),
+('2025-09-02', 8, 1008, TRUE),
+('2025-09-02', 9, 1009, FALSE),
+('2025-09-02', 10, 1010, TRUE),
+('2025-09-02', 1, 1011, TRUE),
+('2025-09-02', 2, 1012, FALSE),
+('2025-09-02', 3, 1013, TRUE),
+('2025-09-02', 4, 1014, FALSE);
+
