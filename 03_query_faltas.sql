@@ -1,27 +1,22 @@
 -- ==============================================
 -- Mostrar faltas
 -- ==============================================
-SELECT
-    c.nombre_curso AS "Materia",
-    g.codigo AS "Grupo",
-    a.nombre || ' ' || a.apellidos AS "Alumno",
-    a.matricula AS "Matrícula",
-    COUNT(*) FILTER (WHERE asis.presente = FALSE) AS "Faltas"
+ SELECT
+    g.codigo AS grupo,
+    c.nombre_curso AS nombre_materia,
+    COUNT(*) FILTER (WHERE a.presente = FALSE) AS total_faltas
 FROM
-    Asistencia asis
+    Asistencia a
 JOIN
-    Inscripcion i ON asis.id_inscripcion = i.id_inscripcion
-JOIN
-    Alumnos a ON i.id_alumno = a.id_alumno
+    Inscripcion i ON a.id_inscripcion = i.id_inscripcion
 JOIN
     Curso c ON i.id_curso = c.id_curso
 JOIN
-    Grupos g ON a.id_grupo = g.id_grupo
+    Alumnos al ON i.id_alumno = al.id_alumno
+JOIN
+    Grupos g ON al.id_grupo = g.id_grupo
 GROUP BY
-    c.nombre_curso,
     g.codigo,
-    a.id_alumno
+    c.nombre_curso
 ORDER BY
-    c.nombre_curso,
-    g.codigo,
-    a.apellidos;
+    g.codigo;
