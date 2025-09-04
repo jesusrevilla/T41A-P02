@@ -1,6 +1,15 @@
-    SELECT g.periodo, g.seccion, g.nombre_grupo,
-           COUNT(*) FILTER (WHERE a.presente = FALSE) AS total_faltas
-    FROM asistencia a
-    JOIN grupos g ON a.periodo = g.periodo AND a.seccion = g.seccion
-    GROUP BY g.periodo, g.seccion, g.nombre_grupo
-    ORDER BY g.seccion;
+SELECT
+    g.periodo,
+    g.clave,
+    g.materia,
+    COUNT(a.presente) FILTER (WHERE a.presente = FALSE) AS total_faltas
+FROM
+    asistencia a
+JOIN
+    inscripcion i ON a.id_inscripcion = i.id_inscripcion
+JOIN
+    grupo g ON i.id_grupo = g.id_grupo
+GROUP BY
+    g.periodo, g.clave, g.materia
+ORDER BY
+    g.clave;
