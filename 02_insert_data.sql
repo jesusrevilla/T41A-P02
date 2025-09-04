@@ -1,19 +1,19 @@
 
     -- Insertar alumnos
     INSERT INTO alumnos VALUES
-    ('A001', 'Ana Torres'),
-    ('A002', 'Luis Gómez'),
-    ('A003', 'María López'),
-    ('A004', 'Carlos Ruiz'),
-    ('A005', 'Laura Méndez'),
-    ('A006', 'Pedro Sánchez'),
-    ('A007', 'Sofía Díaz'),
-    ('A008', 'Jorge Ramírez'),
-    ('A009', 'Elena Castro'),
-    ('A010', 'Tomás Ortega');
+    ('182263', 'Ana Torres'),
+    ('182356', 'Luis Gómez'),
+    ('183355', 'María López'),
+    ('185655', 'Carlos Ruiz'),
+    ('186575', 'Laura Méndez'),
+    ('185665', 'Pedro Sánchez'),
+    ('186895', 'Sofía Díaz'),
+    ('189875', 'Jorge Ramírez'),
+    ('189775', 'Elena Castro'),
+    ('189878', 'Tomás Ortega');
 
     -- Insertar maestros
-    INSERT INTO maestros(nombre) VALUES
+    INSERT INTO profesores(nombre) VALUES
     ('Mtro. Juan Pérez'),
     ('Mtra. Carmen Silva'),
     ('Mtro. Diego Luna'),
