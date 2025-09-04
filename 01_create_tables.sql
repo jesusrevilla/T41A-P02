@@ -1,51 +1,39 @@
+CREATE TABLE estudiante (
+  id_estudiante INTEGER PRIMARY KEY,
+  nombre TEXT NOT NULL,
+  apellido TEXT NOT NULL
+);
 
-    CREATE TABLE alumnos (
-        matricula VARCHAR(20) PRIMARY KEY,
-        nombre VARCHAR(100) NOT NULL
-    );
+CREATE TABLE maestros (
+  id_profesor INTEGER PRIMARY KEY,
+  nombre_profesor TEXT NOT NULL,
+  apellido_profesor TEXT NOT NULL,
+  departamento TEXT NOT NULL
+);
 
-    CREATE TABLE maestros (
-        id_maestro SERIAL PRIMARY KEY,
-        nombre VARCHAR(100) NOT NULL
-    );
+CREATE TABLE grupo (
+  id_curso varchar(15),
+  periodo varchar(15),
+  id_profesor INT REFERENCES Maestros(id_profesor) NOT NULL,
+  nombre_curso TEXT NOT NULL,
+  creditos TEXT NOT NULL,
+  PRIMARY KEY (id_curso, periodo)
+);
 
-    CREATE TABLE grupos (
-        periodo VARCHAR(10) NOT NULL,
-        seccion VARCHAR(10) NOT NULL,
-        nombre_grupo VARCHAR(50) NOT NULL,
-        id_maestro INTEGER NOT NULL,
-        PRIMARY KEY (periodo, seccion),
-        FOREIGN KEY (id_maestro) REFERENCES maestros(id_maestro)
-            ON DELETE RESTRICT
-            ON UPDATE CASCADE
-    );
 
-    CREATE TABLE inscripciones (
-        matricula VARCHAR(20) NOT NULL,
-        periodo VARCHAR(10) NOT NULL,
-        seccion VARCHAR(10) NOT NULL,
-        fecha_inscripcion DATE NOT NULL,
-        FOREIGN KEY (matricula) REFERENCES alumnos(matricula)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
-        FOREIGN KEY (periodo, seccion) REFERENCES grupos(periodo, seccion)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
-        PRIMARY KEY (matricula, periodo, seccion)
-    );
+CREATE TABLE inscripcion (
+  id_estudiante INT REFERENCES Estudiante(id_estudiante) NOT NULL,
+  id_curso varchar(15),
+  periodo varchar(15),
+  fecha_inscripcion DATE NOT NULL,
+  FOREIGN KEY (id_curso, periodo) REFERENCES Grupo(id_curso, periodo)
+);
 
-    CREATE TABLE asistencia (
-        matricula VARCHAR(20) NOT NULL,
-        periodo VARCHAR(10) NOT NULL,
-        seccion VARCHAR(10) NOT NULL,
-        fecha_hora TIMESTAMP NOT NULL,
-        presente BOOLEAN NOT NULL,
-        FOREIGN KEY (matricula) REFERENCES alumnos(matricula)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
-        FOREIGN KEY (periodo, seccion) REFERENCES grupos(periodo, seccion)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
-        PRIMARY KEY (matricula, periodo, seccion, fecha_hora)
-    );
-    
+CREATE TABLE asistencia (
+  id_estudiante INT REFERENCES Estudiante(id_estudiante) NOT NULL,
+  id_curso varchar(15) NOT NULL,
+  periodo varchar(15) NOT NULL,
+  fecha_hora TIMESTAMP,
+  presente boolean,
+  FOREIGN KEY (id_curso, periodo) REFERENCES Grupo(id_curso, periodo)
+);
