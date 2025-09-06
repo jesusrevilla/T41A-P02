@@ -1,66 +1,72 @@
+INSERT INTO carrera values ('ITI','INGENIERIA EN TECNOLOGIAS DE LA INFORMACION'),
+('LAG','LICENCIATURA EN ADMINISTRACION Y GESTION'),
+('ISTI','INGENIERIA EN SISTEMAS Y TECNOLOGIAS INDUSTRIALES'),
+('ITMA','INGENIERIA EN TECNOLOGIAS DE MANUFACTURA'),
+('LMI','LICENCIATURA EN MERCADOTECNIA INTERNACIONAL '),
+('ITEM','INGENIERIA EN TELEMATICA');
 
-    -- Insertar alumnos
-    INSERT INTO alumnos VALUES
-    ('A001', 'Ana Torres'),
-    ('A002', 'Luis Gómez'),
-    ('A003', 'María López'),
-    ('A004', 'Carlos Ruiz'),
-    ('A005', 'Laura Méndez'),
-    ('A006', 'Pedro Sánchez'),
-    ('A007', 'Sofía Díaz'),
-    ('A008', 'Jorge Ramírez'),
-    ('A009', 'Elena Castro'),
-    ('A010', 'Tomás Ortega');
+INSERT INTO estudiante values ('0182934','BRYAN YARETH','GAMEZ CONTRERAS','ITI','182934@UPSLP.EDU.MX'),
+('0182451','FERNANDA DANIELA','GARCIA CAMACHO','ITI','182451@UPSLP.EDU.MX'),
+('0179761','CORAL JAZMIN','DOMINGUEZ GARCIA','ITI','179761@UPSLP.EDU.MX'),
+('0182709','EMMANUEL','CHAVEZ ZAMARRIPA','ISTI','182709@UPSLP.EDU.MX'),
+('0182447','AARON EMANUEL','GONZALEZ DIAZ','ITI','182447@UPSLP.EDU.MX'),
+('0182245','MILDRED GUADALUPE','SANCHEZ GARCIA','ITI','182245@UPSLP.EDU.MX'),
+('0181679','BRYAN','RAMIREZ GARCIA','ITI','181679@UPSLP.EDU.MX'),
+('0181764','MARICARMEN','LARA LOPEZ','ITI','181764@UPSLP.EDU.MX'),
+('0181619','MONICA','HERNANDEZ QUIROZ','ITI','181619@UPSLP.EDU.MX'),
+('0182463','JAZMIN VANESA','ROJAS FLORES','ITI','182463@UPSLP.EDU.MX');
 
-    -- Insertar maestros
-    INSERT INTO maestros(nombre) VALUES
-    ('Mtro. Juan Pérez'),
-    ('Mtra. Carmen Silva'),
-    ('Mtro. Diego Luna'),
-    ('Mtra. Rosa Márquez'),
-    ('Mtro. Andrés Bello'),
-    ('Mtra. Julia Ríos'),
-    ('Mtro. Sergio Peña'),
-    ('Mtra. Alicia Torres'),
-    ('Mtro. Iván Cordero'),
-    ('Mtra. Teresa León');
+INSERT INTO profesor values (1,'JESUS ALBERTO REVILLA','JESUS.REVILLA@UPSLP.EDU.MX'),
+(2,'LILIANA GAMEZ','LILIANA.GAMEZ@UPSLP.EDU.MX'),
+(3,'MARIA DE GUADALUPE ISLAS','MARIA.ISLAS@UPSLP.EDU.MX'),
+(4,'GUADALUPE LEDESMA','GUADALUPE.LEDESMA@UPSLP.EDU.MX'),
+(5,'VICTOR BANDA','VICTOR.BANDA@UPSLP.EDU.MX'),
+(6,'RAFAEL LLAMAS','RAFAEL.LLAMAS@UPSLP.EDU.MX'),
+(7,'BALTAZAR MARTINEZ','BALTAZAR.MARTINEZ@UPSLP.EDU.MX'),
+(8,'VICTOR FERNANDEZ','VICTOR.FERNANDEZ@UPSLP.EDU.MX'),
+(9,'ROXANA HERRERA','ROXANA.HERRERA@UPSLP.EDU.MX'),
+(10,'VICTOR RIVERA','VICTOR.RIVERA@UPSLP.EDU.MX');
 
-    -- Insertar grupos
-    INSERT INTO grupos VALUES
-    ('20253S', 'T41A', 'Bases de Datos I', 1),
-    ('20253S', 'T41B', 'Bases de Datos I', 2),
-    ('20253S', 'T42A', 'Bases de Datos II', 3),
-    ('20253S', 'T42B', 'Bases de Datos II', 4),
-    ('20253S', 'T43A', 'Diseño de BD', 5),
-    ('20253S', 'T43B', 'Diseño de BD', 6),
-    ('20253S', 'T44A', 'SQL Avanzado', 7),
-    ('20253S', 'T44B', 'SQL Avanzado', 8),
-    ('20253S', 'T45A', 'PostgreSQL', 9),
-    ('20253S', 'T45B', 'PostgreSQL', 10);
+INSERT INTO materia values (1,'BASE DE DATOS',7),
+(2,'PROGRAMACION I',2),
+(3,'FISICA II',3),
+(4,'PROGRAMACION II',3),
+(5,'PROGRAMACION III',4),
+(6,'SISTEMAS DIGITALES',5),
+(7,'MATEMATICAS I',2),
+(8,'INGLES V',5),
+(9,'FISICA I',2),
+(10,'FISICA II',3);
 
-    -- Inscripciones
-    INSERT INTO inscripciones VALUES
-    ('A001', '20253S', 'T41A', '2025-08-01'),
-    ('A002', '20253S', 'T41A', '2025-08-01'),
-    ('A003', '20253S', 'T41B', '2025-08-01'),
-    ('A004', '20253S', 'T41B', '2025-08-01'),
-    ('A005', '20253S', 'T42A', '2025-08-01'),
-    ('A006', '20253S', 'T42A', '2025-08-01'),
-    ('A007', '20253S', 'T42B', '2025-08-01'),
-    ('A008', '20253S', 'T42B', '2025-08-01'),
-    ('A009', '20253S', 'T43A', '2025-08-01'),
-    ('A010', '20253S', 'T43A', '2025-08-01');
+INSERT INTO grupo values ('S38A',1,1,'ISTI','20251S'),
+('S38E',1,3,'ISTI','20243S'),
+('T41A',2,3,'ITI','20252S'),
+('T48A',1,1,'ITI','20253S'),
+('T38A',3,4,'ITI','20253S'),
+('T58A',4,2,'ITI','20253S'),
+('T28A',6,7,'ITI','20253S'),
+('S48A',6,8,'ISTI','20253S'),
+('T18A',9,7,'ITI','20253S'),
+('S45A',10,5,'ISTI','20253S');
 
-    -- Asistencia (algunos ausentes)
-    INSERT INTO asistencia VALUES
-    ('A001', '20253S', 'T41A', '2025-09-01 08:00:00', TRUE),
-    ('A002', '20253S', 'T41A', '2025-09-01 08:00:00', FALSE),
-    ('A003', '20253S', 'T41B', '2025-09-01 10:00:00', TRUE),
-    ('A004', '20253S', 'T41B', '2025-09-01 10:00:00', FALSE),
-    ('A005', '20253S', 'T42A', '2025-09-01 12:00:00', TRUE),
-    ('A006', '20253S', 'T42A', '2025-09-01 12:00:00', FALSE),
-    ('A007', '20253S', 'T42B', '2025-09-01 14:00:00', TRUE),
-    ('A008', '20253S', 'T42B', '2025-09-01 14:00:00', FALSE),
-    ('A009', '20253S', 'T43A', '2025-09-01 16:00:00', TRUE),
-    ('A010', '20253S', 'T43A', '2025-09-01 16:00:00', FALSE);
-    
+INSERT INTO inscripcion values ('0182934','T48A','20253S'),
+('0182451','T48A','20253S'),
+('0179761','T48A','20253S'),
+('0182245','T41A','20252S'),
+('0182934','S48A','20253S'),
+('0182934','T41A','20252S'),
+('0182245','T38A','20253S'),
+('0181619','T41A','20252S'),
+('0182934','T18A','20253S'),
+('0181619','S45A','20253S');
+
+INSERT INTO asistencia values ('0182934','T48A','20253S','01/09/2025T19:01',true),
+('0182934','T48A','20253S','02/09/2025T19:01',false),
+('0182934','T48A','20253S','03/09/2025T19:01',true),
+('0182451','T48A','20253S','01/09/2025T19:01',true),
+('0182451','T48A','20253S','02/09/2025T19:01',false),
+('0179761','T48A','20253S','03/09/2025T19:01',true),
+('0182934','T18A','20253S','01/09/2025T19:01',true),
+('0182934','T18A','20253S','02/09/2025T19:01',true),
+('0182934','T18A','20253S','03/09/2025T19:01',false),
+('0181619','S45A','20253S','01/09/2025T19:01',true);
