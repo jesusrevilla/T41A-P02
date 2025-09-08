@@ -1,4 +1,5 @@
-INSERT INTO alumno (matricula, nombre_alumno) VALUES
+-- Insertar alumnos
+INSERT INTO alumnos (matricula, nombre_alumno) VALUES
 (001, 'Ana Torres'),
 (002, 'Luis Gómez'),
 (003, 'María López'),
@@ -10,7 +11,8 @@ INSERT INTO alumno (matricula, nombre_alumno) VALUES
 (009, 'Elena Castro'),
 (010, 'Tomás Ortega');
 
-INSERT INTO maestro (nombre_maestro) VALUES
+-- Insertar maestros
+INSERT INTO maestros (nombre_maestro) VALUES
 ('Mtro. Juan Pérez'),
 ('Mtra. Carmen Silva'),
 ('Mtro. Diego Luna'),
@@ -22,7 +24,8 @@ INSERT INTO maestro (nombre_maestro) VALUES
 ('Mtro. Iván Cordero'),
 ('Mtra. Teresa León');
 
-INSERT INTO grupo (nombre_grupo) VALUES
+-- Insertar grupos
+INSERT INTO grupos (nombre_grupo) VALUES
 ('T41A'),
 ('T41B'),
 ('T42A'),
@@ -34,7 +37,8 @@ INSERT INTO grupo (nombre_grupo) VALUES
 ('T45A'),
 ('T45B');
 
-INSERT INTO materia (nombre_materia, id_maestro, id_grupo) VALUES
+-- Insertar materias
+INSERT INTO materias (nombre_materia, id_maestro, id_grupo) VALUES
 ('Bases de Datos I', 1, 1),
 ('Bases de Datos I', 2, 2),
 ('Bases de Datos II', 3, 3),
@@ -46,7 +50,8 @@ INSERT INTO materia (nombre_materia, id_maestro, id_grupo) VALUES
 ('PostgreSQL', 9, 9),
 ('PostgreSQL', 10, 10);
 
-INSERT INTO inscripcion (id_alumno, id_grupo, periodo) VALUES
+-- Insertar inscripciones
+INSERT INTO inscripciones (id_alumno, id_grupo, periodo) VALUES
 (1, 1, '20253S'),
 (2, 1, '20253S'),
 (3, 2, '20253S'),
@@ -58,7 +63,8 @@ INSERT INTO inscripcion (id_alumno, id_grupo, periodo) VALUES
 (9, 5, '20253S'),
 (10, 5, '20253S');
 
-INSERT INTO asistencia (id_inscripcion, id_materia, fecha_asistencia, estado_asistencia) VALUES
+-- Insertar asistencias
+INSERT INTO asistencias (id_inscripcion, id_materia, fecha_asistencia, estado_asistencia) VALUES
 (1, 1, '2025-09-01', 'Asistio'),
 (2, 1, '2025-09-01', 'Falto'),
 (3, 2, '2025-09-01', 'Asistio'),
