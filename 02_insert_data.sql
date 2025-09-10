@@ -7,7 +7,7 @@ INSERT INTO Grupos (codigo) VALUES
 ('S38A'), ('S38E'), ('T41A');
 
 -- Profesores
-INSERT INTO Profesor (nombre, apellidos, departamento) VALUES
+INSERT INTO maestros (nombre, apellidos, departamento) VALUES
 ('Juan', 'Pérez', 'Matemáticas'),
 ('María', 'González', 'Lenguas'),
 ('Carlos', 'Ramírez', 'Ciencias');
