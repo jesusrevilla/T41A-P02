@@ -1,47 +1,132 @@
-INSERT INTO Alumnos (matricula, nombre, apellido_paterno, apellido_materno, fecha_nacimiento, email) VALUES
-('A001', 'Ana', 'Torres', 'Pérez', '2000-01-15', 'ana.torres@ejemplo.com'),
-('A002', 'Luis', 'Gómez', 'Díaz', '2001-03-20', 'luis.gomez@ejemplo.com'),
-('A003', 'María', 'López', 'Ruiz', '2000-07-22', 'maria.lopez@ejemplo.com'),
-('A004', 'Carlos', 'Ruiz', 'Sánchez', '2002-05-10', 'carlos.ruiz@ejemplo.com'),
-('A005', 'Laura', 'Méndez', 'Pérez', '2001-09-08', 'laura.mendez@ejemplo.com'),
-('A006', 'Pedro', 'Sánchez', 'García', '2002-11-25', 'pedro.sanchez@ejemplo.com'),
-('A007', 'Sofía', 'Díaz', 'Martínez', '2000-02-18', 'sofia.diaz@ejemplo.com'),
-('A008', 'Jorge', 'Ramírez', 'Flores', '2001-04-30', 'jorge.ramirez@ejemplo.com'),
-('A009', 'Elena', 'Castro', 'Hernández', '2002-06-12', 'elena.castro@ejemplo.com'),
-('A010', 'Tomás', 'Ortega', 'Vargas', '2000-08-05', 'tomas.ortega@ejemplo.com');
-('A001', 'Ana', 'Torres', 'Pérez', '2000-01-15', 'ana.torres@upslp.edu.mx'),
-('A002', 'Luis', 'Gómez', 'Díaz', '2001-03-20', 'luis.gomez@upslp.edu.mx'),
-('A003', 'María', 'López', 'Ruiz', '2000-07-22', 'maria.lopez@upslp.edu.mx'),
-('A004', 'Carlos', 'Ruiz', 'Sánchez', '2002-05-10', 'carlos.ruiz@upslp.edu.mx'),
-('A005', 'Laura', 'Méndez', 'Pérez', '2001-09-08', 'laura.mendez@upslp.edu.mx'),
-('A006', 'Pedro', 'Sánchez', 'García', '2002-11-25', 'pedro.sanchez@upslp.edu.mx'),
-('A007', 'Sofía', 'Díaz', 'Martínez', '2000-02-18', 'sofia.diaz@upslp.edu.mx'),
-('A008', 'Jorge', 'Ramírez', 'Flores', '2001-04-30', 'jorge.ramirez@upslp.edu.mx'),
-('A009', 'Elena', 'Castro', 'Hernández', '2002-06-12', 'elena.castro@upslp.edu.mx'),
-('A010', 'Tomás', 'Ortega', 'Vargas', '2000-08-05', 'tomas.ortega@upslp.edu.mx');
+INSERT INTO alumno (matricula, nombre_alumno) VALUES
+(001, 'Ana Torres'),
+(002, 'Luis Gómez'),
+(003, 'María López'),
+(004, 'Carlos Ruiz'),
+(005, 'Laura Méndez'),
+(006, 'Pedro Sánchez'),
+(007, 'Sofía Díaz'),
+(008, 'Jorge Ramírez'),
+(009, 'Elena Castro'),
+(010, 'Tomás Ortega');
 
--- Tabla Profesores
-INSERT INTO Profesores (nombre, apellido_paterno, apellido_materno, email) VALUES
-('Juan', 'Pérez', 'Soto', 'juan.perez@maestro.com'),
-('Carmen', 'Silva', 'Gómez', 'carmen.silva@maestro.com'),
-('Diego', 'Luna', 'Vargas', 'diego.luna@maestro.com'),
-('Rosa', 'Márquez', 'Méndez', 'rosa.marquez@maestro.com'),
-('Andrés', 'Bello', 'Ríos', 'andres.bello@maestro.com'),
-('Julia', 'Ríos', 'Castro', 'julia.rios@maestro.com'),
-('Sergio', 'Peña', 'López', 'sergio.pena@maestro.com'),
-('Alicia', 'Torres', 'García', 'alicia.torres@maestro.com'),
-('Iván', 'Cordero', 'Ruiz', 'ivan.cordero@maestro.com'),
-('Teresa', 'León', 'Díaz', 'teresa.leon@maestro.com');
-('Juan', 'Pérez', 'Soto', 'juan.perez@upslp.edu.mx'),
-('Carmen', 'Silva', 'Gómez', 'carmen.silva@upslp.edu.mx'),
-('Diego', 'Luna', 'Vargas', 'diego.luna@upslp.edu.mx'),
-('Rosa', 'Márquez', 'Méndez', 'rosa.marquez@upslp.edu.mx'),
-('Andrés', 'Bello', 'Ríos', 'andres.bello@upslp.edu.mx'),
-('Julia', 'Ríos', 'Castro', 'julia.rios@upslp.edu.mx'),
-('Sergio', 'Peña', 'López', 'sergio.pena@upslp.edu.mx'),
-('Alicia', 'Torres', 'García', 'alicia.torres@upslp.edu.mx'),
-('Iván', 'Cordero', 'Ruiz', 'ivan.cordero@upslp.edu.mx'),
-('Teresa', 'León', 'Díaz', 'teresa.leon@upslp.edu.mx');
+    -- Insertar alumnos
+    INSERT INTO alumnos VALUES
+    ('A001', 'Ana Torres'),
+    ('A002', 'Luis Gómez'),
+    ('A003', 'María López'),
+    ('A004', 'Carlos Ruiz'),
+    ('A005', 'Laura Méndez'),
+    ('A006', 'Pedro Sánchez'),
+    ('A007', 'Sofía Díaz'),
+    ('A008', 'Jorge Ramírez'),
+    ('A009', 'Elena Castro'),
+    ('A010', 'Tomás Ortega');
+INSERT INTO maestro (nombre_maestro) VALUES
+('Mtro. Juan Pérez'),
+('Mtra. Carmen Silva'),
+('Mtro. Diego Luna'),
+('Mtra. Rosa Márquez'),
+('Mtro. Andrés Bello'),
+('Mtra. Julia Ríos'),
+('Mtro. Sergio Peña'),
+('Mtra. Alicia Torres'),
+('Mtro. Iván Cordero'),
+('Mtra. Teresa León');
 
--- Tabla Materias
-INSERT INTO Materias (nombre_materia, descripcion) VALUES
+    -- Insertar maestros
+    INSERT INTO maestros(nombre) VALUES
+    ('Mtro. Juan Pérez'),
+    ('Mtra. Carmen Silva'),
+    ('Mtro. Diego Luna'),
+    ('Mtra. Rosa Márquez'),
+    ('Mtro. Andrés Bello'),
+    ('Mtra. Julia Ríos'),
+    ('Mtro. Sergio Peña'),
+    ('Mtra. Alicia Torres'),
+    ('Mtro. Iván Cordero'),
+    ('Mtra. Teresa León');
+INSERT INTO grupo (nombre_grupo) VALUES
+('T41A'),
+('T41B'),
+('T42A'),
+('T42B'),
+('T43A'),
+('T43B'),
+('T44A'),
+('T44B'),
+('T45A'),
+('T45B');
+
+    -- Insertar grupos
+    INSERT INTO grupos VALUES
+    ('20253S', 'T41A', 'Bases de Datos I', 1),
+    ('20253S', 'T41B', 'Bases de Datos I', 2),
+    ('20253S', 'T42A', 'Bases de Datos II', 3),
+    ('20253S', 'T42B', 'Bases de Datos II', 4),
+    ('20253S', 'T43A', 'Diseño de BD', 5),
+    ('20253S', 'T43B', 'Diseño de BD', 6),
+    ('20253S', 'T44A', 'SQL Avanzado', 7),
+    ('20253S', 'T44B', 'SQL Avanzado', 8),
+    ('20253S', 'T45A', 'PostgreSQL', 9),
+    ('20253S', 'T45B', 'PostgreSQL', 10);
+INSERT INTO materia (nombre_materia, id_maestro, id_grupo) VALUES
+('Bases de Datos I', 1, 1),
+('Bases de Datos I', 2, 2),
+('Bases de Datos II', 3, 3),
+('Bases de Datos II', 4, 4),
+('Diseño de BD', 5, 5),
+('Diseño de BD', 6, 6),
+('SQL Avanzado', 7, 7),
+('SQL Avanzado', 8, 8),
+('PostgreSQL', 9, 9),
+('PostgreSQL', 10, 10);
+
+    -- Inscripciones
+    INSERT INTO inscripciones VALUES
+    ('A001', '20253S', 'T41A', '2025-08-01'),
+    ('A002', '20253S', 'T41A', '2025-08-01'),
+    ('A003', '20253S', 'T41B', '2025-08-01'),
+    ('A004', '20253S', 'T41B', '2025-08-01'),
+    ('A005', '20253S', 'T42A', '2025-08-01'),
+    ('A006', '20253S', 'T42A', '2025-08-01'),
+    ('A007', '20253S', 'T42B', '2025-08-01'),
+    ('A008', '20253S', 'T42B', '2025-08-01'),
+    ('A009', '20253S', 'T43A', '2025-08-01'),
+    ('A010', '20253S', 'T43A', '2025-08-01');
+INSERT INTO inscripcion (id_alumno, id_grupo, periodo) VALUES
+(1, 1, '20253S'),
+(2, 1, '20253S'),
+(3, 2, '20253S'),
+(4, 2, '20253S'),
+(5, 3, '20253S'),
+(6, 3, '20253S'),
+(7, 4, '20253S'),
+(8, 4, '20253S'),
+(9, 5, '20253S'),
+(10, 5, '20253S');
+
+    -- Asistencia (algunos ausentes)
+    INSERT INTO asistencia VALUES
+    ('A001', '20253S', 'T41A', '2025-09-01 08:00:00', TRUE),
+    ('A002', '20253S', 'T41A', '2025-09-01 08:00:00', FALSE),
+    ('A003', '20253S', 'T41B', '2025-09-01 10:00:00', TRUE),
+    ('A004', '20253S', 'T41B', '2025-09-01 10:00:00', FALSE),
+    ('A005', '20253S', 'T42A', '2025-09-01 12:00:00', TRUE),
+    ('A006', '20253S', 'T42A', '2025-09-01 12:00:00', FALSE),
+    ('A007', '20253S', 'T42B', '2025-09-01 14:00:00', TRUE),
+    ('A008', '20253S', 'T42B', '2025-09-01 14:00:00', FALSE),
+    ('A009', '20253S', 'T43A', '2025-09-01 16:00:00', TRUE),
+    ('A010', '20253S', 'T43A', '2025-09-01 16:00:00', FALSE);
+
+INSERT INTO asistencia (id_inscripcion, id_materia, fecha_asistencia, estado_asistencia) VALUES
+(1, 1, '2025-09-01', 'Asistio'),
+(2, 1, '2025-09-01', 'Falto'),
+(3, 2, '2025-09-01', 'Asistio'),
+(4, 2, '2025-09-01', 'Falto'),
+(5, 3, '2025-09-01', 'Asistio'),
+(6, 3, '2025-09-01', 'Falto'),
+(7, 4, '2025-09-01', 'Asistio'),
+(8, 4, '2025-09-01', 'Falto'),
+(9, 5, '2025-09-01', 'Asistio'),
+(10, 5, '2025-09-01', 'Falto');
