@@ -1,53 +1,48 @@
-def test_alumnos_insertados(db_connection):
-    with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM Alumnos;")
-        count = cur.fetchone()[0]
+   count = cur.fetchone()[0]
         assert count == 10
 
-def test_profesores_insertados(db_connection):
-    with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM Profesores;")
-        count = cur.fetchone()[0]
-        assert count == 10
-
+def test_inscripciones_insertados(db_connection):
 def test_materias_insertadas(db_connection):
     with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM Materias;")
-        count = cur.fetchone()[0]
-        assert count == 10
-
-def test_grupos_insertados(db_connection):
-    with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM Grupos;")
+        cur.execute("SELECT COUNT(*) FROM materias;")
         count = cur.fetchone()[0]
         assert count == 10
 
 def test_inscripciones_insertadas(db_connection):
     with db_connection.cursor() as cur:
-        cur.execute("SELECT COUNT(*) FROM Inscripciones;")
+        cur.execute("SELECT COUNT(*) FROM inscripciones;")
         count = cur.fetchone()[0]
-        assert count == 10
+        assert count == 10  
 
+def test_asistencia_insertados(db_connection):
+def test_asistencias_insertadas(db_connection):
+    with db_connection.cursor() as cur:
+        cur.execute("SELECT COUNT(*) FROM asistencia;")
+        cur.execute("SELECT COUNT(*) FROM asistencias;")
+        count = cur.fetchone()[0]
+        assert count == 10  
 
 def test_structure(db_connection):
     sql = ''' 
             SELECT tablename FROM pg_tables 
-            WHERE tablename IN (
-                'estudiante', 'alumnos', 'libro', 'profesores',
-                'prestamo', 'materias', 'periodos', 'grupos',
-                'inscripciones', 'asistencias'
-            );
+            WHERE tablename 
+            IN ('alumnos', 'maestros', 'grupos',
+            'inscripciones', 'asistencia');
           '''
-    expected_tables = {
-        'estudiante', 'alumnos', 'libro', 'profesores',
-        'prestamo', 'materias', 'periodos', 'grupos',
-        'inscripciones', 'asistencias'
-    }
+    expected_tables = {'alumnos', 'maestros',
+                       'grupos', 'inscripciones',
+                       'asistencia'}
+        SELECT tablename FROM pg_tables 
+        WHERE tablename IN (
+            'alumnos', 'maestros', 'grupos', 'materias',
+            'inscripciones', 'asistencias'
+        );
+    '''
+    expected_tables = {'alumnos', 'maestros', 'grupos', 'materias', 'inscripciones', 'asistencias'}
     with db_connection.cursor() as cur:
         cur.execute(sql)
         result_tables = {row[0] for row in cur.fetchall()}
-        msg = f'''Expected tables {expected_tables}, but found {result_tables}'''
-        # con igualdad estricta:
-        # assert result_tables == expected_tables, msg
-        # o si quieres que sea flexible:
-        assert expected_tables.issubset(result_tables), msg
+        msg = f'''Expected tables {expected_tables},
+              but found {result_tables}'''
+        msg = f"Expected tables {expected_tables}, but found {result_tables}"
+        assert result_tables == expected_tables, msg
