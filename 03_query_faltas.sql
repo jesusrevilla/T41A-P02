@@ -1,28 +1,17 @@
-   SELECT g.periodo, g.seccion, g.nombre_grupo,
+    SELECT g.periodo, g.seccion, g.nombre_grupo,
            COUNT(*) FILTER (WHERE a.presente = FALSE) AS total_faltas
     FROM asistencia a
     JOIN grupos g ON a.periodo = g.periodo AND a.seccion = g.seccion
     GROUP BY g.periodo, g.seccion, g.nombre_grupo
     ORDER BY g.seccion;
-SELECT
-    p.nombre_periodo,
-    g.codigo_grupo,
-    m.nombre_materia,
-    COUNT(a.estado_asistencia) FILTER (WHERE a.estado_asistencia = 'Ausente') AS total_faltas
-FROM
-    Asistencias a
-JOIN
-    Inscripciones i ON a.id_inscripcion = i.id_inscripcion
-JOIN
-    Grupos g ON i.id_grupo = g.id_grupo
-JOIN
-    Materias m ON g.id_materia = m.id_materia
-JOIN
-    Periodos p ON g.id_periodo = p.id_periodo
-GROUP BY
-    p.nombre_periodo,
-    g.codigo_grupo,
-    m.nombre_materia
-ORDER BY
-    p.nombre_periodo,
-    g.codigo_grupo;
+SELECT 
+    i.periodo,
+    g.nombre_grupo,
+    COUNT(*) FILTER (WHERE a.estado_asistencia = 'Falto') AS total_faltas,
+    COUNT(*) FILTER (WHERE a.estado_asistencia = 'Asistio') AS total_asistencias,
+    COUNT(*) FILTER (WHERE a.estado_asistencia = 'Retardo') AS total_retardos
+FROM asistencia a
+JOIN inscripcion i ON a.id_inscripcion = i.id_inscripcion
+JOIN grupo g ON i.id_grupo = g.id_grupo
+GROUP BY i.periodo, g.nombre_grupo
+ORDER BY g.nombre_grupo;
