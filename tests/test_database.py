@@ -2,7 +2,6 @@
     )
     yield conn
     conn.close()
-
 def test_carreras_insertadas(db_connection):
     with db_connection.cursor() as cur:
         cur.execute("SELECT COUNT(*) FROM carrera;")
