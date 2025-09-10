@@ -9,7 +9,7 @@ CREATE TABLE Grupos (
 -- ==============================================
 -- TABLA: Profesor
 -- ==============================================
-CREATE TABLE Profesor (
+CREATE TABLE maestros (
     id_profesor SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE Curso (
     creditos INTEGER NOT NULL,
     año INT NOT NULL,
     id_profesor INTEGER,
-    FOREIGN KEY (id_profesor) REFERENCES Profesor(id_profesor)
+    FOREIGN KEY (id_profesor) REFERENCES maestros(id_profesor)
         ON DELETE RESTRICT
         ON UPDATE CASCADE
 );
