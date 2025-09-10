@@ -1,6 +1,3 @@
-)
-    yield conn
-    conn.close()
  
 def test_alumnos_insertados(db_connection):
  
