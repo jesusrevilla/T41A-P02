@@ -1,66 +1,75 @@
+-- Insertar carreras
+INSERT INTO carrera (nombre) VALUES ('ITI'),('LAG'),('ISTI'),('LMI'),('ITMA'),('ITEM');
 
-    -- Insertar alumnos
-    INSERT INTO alumnos VALUES
-    ('A001', 'Ana Torres'),
-    ('A002', 'Luis Gómez'),
-    ('A003', 'María López'),
-    ('A004', 'Carlos Ruiz'),
-    ('A005', 'Laura Méndez'),
-    ('A006', 'Pedro Sánchez'),
-    ('A007', 'Sofía Díaz'),
-    ('A008', 'Jorge Ramírez'),
-    ('A009', 'Elena Castro'),
-    ('A010', 'Tomás Ortega');
+-- Insertar alumnos
+INSERT INTO alumno (matricula ,nombre, apellido_paterno, apellido_materno, id_carrera) VALUES
+('181920', 'Ana','Torres','López', 1),
+('181232', 'Luis','Gómez','Ortiz', 1),
+('178902', 'María','López','Gonzales', 1),
+('178930', 'Carlos','Ruiz','López', 1),
+('191818', 'Laura','Méndez','Torres', 1),
+('182023', 'Pedro','Sánchez','Ruiz', 1),
+('182934', 'Sofía','Díaz','Gonzales', 1),
+('124564', 'Jorge','Ramírez','Méndez', 1),
+('123456', 'Elena','Castro','Ramírez', 1),
+('183453', 'Tomás','Ortega','Ortiz', 1);
 
-    -- Insertar maestros
-    INSERT INTO maestros(nombre) VALUES
-    ('Mtro. Juan Pérez'),
-    ('Mtra. Carmen Silva'),
-    ('Mtro. Diego Luna'),
-    ('Mtra. Rosa Márquez'),
-    ('Mtro. Andrés Bello'),
-    ('Mtra. Julia Ríos'),
-    ('Mtro. Sergio Peña'),
-    ('Mtra. Alicia Torres'),
-    ('Mtro. Iván Cordero'),
-    ('Mtra. Teresa León');
+-- Insertar maestros
+INSERT INTO maestro(nombre,apellido_paterno,apellido_materno) VALUES
+('Mtro. Juan','Pérez','Torres'),
+('Mtra. Carmen','Silva','Ruiz'),
+('Mtro. Diego','Luna','Ramírez'),
+('Mtra. Rosa','Márquez','López'),
+('Mtro. Andrés','Bello','Méndez'),
+('Mtra. Julia','Ríos','Ortiz'),
+('Mtro. Sergio','Peña','Ortega'),
+('Mtra. Alicia','Torres','Torres'),
+('Mtro. Iván','Cordero','Castro'),
+('Mtra. Teresa','León','Díaz');
 
-    -- Insertar grupos
-    INSERT INTO grupos VALUES
-    ('20253S', 'T41A', 'Bases de Datos I', 1),
-    ('20253S', 'T41B', 'Bases de Datos I', 2),
-    ('20253S', 'T42A', 'Bases de Datos II', 3),
-    ('20253S', 'T42B', 'Bases de Datos II', 4),
-    ('20253S', 'T43A', 'Diseño de BD', 5),
-    ('20253S', 'T43B', 'Diseño de BD', 6),
-    ('20253S', 'T44A', 'SQL Avanzado', 7),
-    ('20253S', 'T44B', 'SQL Avanzado', 8),
-    ('20253S', 'T45A', 'PostgreSQL', 9),
-    ('20253S', 'T45B', 'PostgreSQL', 10);
+-- Insertar materias
+INSERT INTO materia(codigo,nombre,id_carrera) VALUES 
+('T41','Base de Datos I',1),
+('T42','Base de Datos II',1),
+('T43','Diseño de BD',1),
+('T44','SQL Avanzado',1),
+('T45','PostgreSQL',1);
 
-    -- Inscripciones
-    INSERT INTO inscripciones VALUES
-    ('A001', '20253S', 'T41A', '2025-08-01'),
-    ('A002', '20253S', 'T41A', '2025-08-01'),
-    ('A003', '20253S', 'T41B', '2025-08-01'),
-    ('A004', '20253S', 'T41B', '2025-08-01'),
-    ('A005', '20253S', 'T42A', '2025-08-01'),
-    ('A006', '20253S', 'T42A', '2025-08-01'),
-    ('A007', '20253S', 'T42B', '2025-08-01'),
-    ('A008', '20253S', 'T42B', '2025-08-01'),
-    ('A009', '20253S', 'T43A', '2025-08-01'),
-    ('A010', '20253S', 'T43A', '2025-08-01');
+-- Insertar grupos
+INSERT INTO grupo(id_maestro,codigo_materia,codigo_grupo,periodo) VALUES
+(1,'T41','A','20253S'),
+(2,'T41','B','20253S'),
+(3,'T42','A','20253S'),
+(4,'T42','B','20253S'),
+(5,'T43','A','20253S'),
+(6,'T43','B','20253S'),
+(7,'T44','A','20253S'),
+(8,'T44','B','20253S'),
+(9,'T45','A','20253S'),
+(10,'T45','B','20253S');
 
-    -- Asistencia (algunos ausentes)
-    INSERT INTO asistencia VALUES
-    ('A001', '20253S', 'T41A', '2025-09-01 08:00:00', TRUE),
-    ('A002', '20253S', 'T41A', '2025-09-01 08:00:00', FALSE),
-    ('A003', '20253S', 'T41B', '2025-09-01 10:00:00', TRUE),
-    ('A004', '20253S', 'T41B', '2025-09-01 10:00:00', FALSE),
-    ('A005', '20253S', 'T42A', '2025-09-01 12:00:00', TRUE),
-    ('A006', '20253S', 'T42A', '2025-09-01 12:00:00', FALSE),
-    ('A007', '20253S', 'T42B', '2025-09-01 14:00:00', TRUE),
-    ('A008', '20253S', 'T42B', '2025-09-01 14:00:00', FALSE),
-    ('A009', '20253S', 'T43A', '2025-09-01 16:00:00', TRUE),
-    ('A010', '20253S', 'T43A', '2025-09-01 16:00:00', FALSE);
-    
+-- Insertar inscripciones
+INSERT INTO inscripcion(matricula,id_grupo) VALUES
+('181920',1),
+('181232',1),
+('178902',2),
+('178930',2),
+('191818',3),
+('182023',3),
+('182934',4),
+('124564',4),
+('123456',5),
+('183453',5);
+
+-- Asistencia (algunos ausentes)
+INSERT INTO asistencia(id_inscripcion,fecha_hora,asistio) VALUES
+(1,'2025-09-01 08:00:00',TRUE),
+(2,'2025-09-01 08:00:00',FALSE),
+(3,'2025-09-01 10:00:00',TRUE),
+(4,'2025-09-01 10:00:00',FALSE),
+(5,'2025-09-01 12:00:00',TRUE),
+(6,'2025-09-01 12:00:00',FALSE),
+(7,'2025-09-01 14:00:00',TRUE),
+(8,'2025-09-01 14:00:00',FALSE),
+(9,'2025-09-01 16:00:00',TRUE),
+(10,'2025-09-01 16:00:00',FALSE);
