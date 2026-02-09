@@ -11,6 +11,16 @@
     ('A008', 'Jorge Ramírez'),
     ('A009', 'Elena Castro'),
     ('A010', 'Tomás Ortega');
+INSERT INTO estudiante VALUES ('174197','Yovana Isabel','Palencia Sáchez'),
+('177847','Alfredo','De Alba Sánchez'),
+('178948','José Alfredo','Reyes González'),
+('175607','Jordy Iván','Rodríguez Torres'),
+('175596','Sebastián','Rodríguez Segura'),
+('175031','Brian Salvador','Espinoza Aguilar'),
+('175817','Christian Andre','Arellano Cruz'),
+('181662','Josué','Pineda Aguilar'),
+('182078','Josué Emmanuel','López López'),
+('178823','Rodolfo','Cavazos Zacarias');
 
     -- Insertar maestros
     INSERT INTO maestros(nombre) VALUES
@@ -24,6 +34,16 @@
     ('Mtra. Alicia Torres'),
     ('Mtro. Iván Cordero'),
     ('Mtra. Teresa León');
+INSERT INTO profesor VALUES (001,'Jesús Alberto','Revilla Silva'),
+(002,'Rubén','Cardenas Sánchez'),
+(003,'Paulina del Rosario','Pérez Castillo'),
+(004,'Nehemias','Leija Martínez'),
+(005,'Jesús Agustín','Aboytes González'),
+(006,'Israel','Guerrero Castillo'),
+(007,'Genaro','Niño Carrales'),
+(008,'Victor Manuel','Fernández Mireles'),
+(009,'Francisco Cruz','Ordaz Salazar'),
+(010,'Alejandro','Reyes');
 
     -- Insertar grupos
     INSERT INTO grupos VALUES
@@ -37,6 +57,16 @@
     ('20253S', 'T44B', 'SQL Avanzado', 8),
     ('20253S', 'T45A', 'PostgreSQL', 9),
     ('20253S', 'T45B', 'PostgreSQL', 10);
+INSERT INTO curso VALUES ('Base de datos','T41A',001),
+('Interacción','S38A',002),
+('Núcleo V','S38E',003),
+('Matemáticas III','S38A',004),
+('Sistemas digitales','T48A',005),
+('Organización','S38E',006),
+('PIC I','T48A',007),
+('Sistemas operativos','S38A',008),
+('Teoría Computacional','S38E',009),
+('Algoritmos','T48A',010);
 
     -- Inscripciones
     INSERT INTO inscripciones VALUES
@@ -50,6 +80,16 @@
     ('A008', '20253S', 'T42B', '2025-08-01'),
     ('A009', '20253S', 'T43A', '2025-08-01'),
     ('A010', '20253S', 'T43A', '2025-08-01');
+INSERT INTO inscripcion VALUES ('175031', 'Organización', 'S38E'),
+('175817', 'PIC I', 'T48A'),
+('181662', 'Sistemas operativos', 'S38A'),
+('182078', 'Teoría Computacional', 'S38E'),
+('178823', 'Algoritmos', 'T48A'),
+('174197', 'Organización', 'S38E'),
+('177847', 'PIC I', 'T48A'),
+('178948', 'Sistemas operativos', 'S38A'),
+('175607', 'Teoría Computacional', 'S38E'),
+('175596', 'Algoritmos', 'T48A');
 
     -- Asistencia (algunos ausentes)
     INSERT INTO asistencia VALUES
@@ -63,4 +103,15 @@
     ('A008', '20253S', 'T42B', '2025-09-01 14:00:00', FALSE),
     ('A009', '20253S', 'T43A', '2025-09-01 16:00:00', TRUE),
     ('A010', '20253S', 'T43A', '2025-09-01 16:00:00', FALSE);
+INSERT INTO asistencia VALUES
+('174197', 'Base de datos', 'T41A', '2025-09-11 08:00:00', TRUE),
+('177847', 'Interacción', 'S38A', '2025-09-11 09:00:00', TRUE),
+('178948', 'Núcleo V', 'S38E', '2025-09-11 10:00:00', FALSE),
+('175607', 'Matemáticas III', 'S38A', '2025-09-11 11:00:00', TRUE),
+('175596', 'Sistemas digitales', 'T48A', '2025-09-11 12:00:00', TRUE),
+('175031', 'Organización', 'S38E', '2025-09-11 13:00:00', TRUE),
+('175817', 'PIC I', 'T48A', '2025-09-11 14:00:00', FALSE),
+('181662', 'Sistemas operativos', 'S38A', '2025-09-11 15:00:00', TRUE),
+('182078', 'Teoría Computacional', 'S38E', '2025-09-11 16:00:00', TRUE),
+('178823', 'Algoritmos', 'T48A', '2025-09-11 17:00:00', FALSE);
     
