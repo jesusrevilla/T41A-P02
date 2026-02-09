@@ -1,51 +1,40 @@
+-- Reinicio ordenado (PostgreSQL)
+DROP TABLE IF EXISTS asistencia;
+DROP TABLE IF EXISTS inscripciones;
+DROP TABLE IF EXISTS grupos;
+DROP TABLE IF EXISTS maestros;
+DROP TABLE IF EXISTS alumnos;
 
-    CREATE TABLE alumnos (
-        matricula VARCHAR(20) PRIMARY KEY,
-        nombre VARCHAR(100) NOT NULL
-    );
+-- Catálogos
+CREATE TABLE alumnos (
+  id      SERIAL PRIMARY KEY,
+  nombre  TEXT NOT NULL
+);
 
-    CREATE TABLE maestros (
-        id_maestro SERIAL PRIMARY KEY,
-        nombre VARCHAR(100) NOT NULL
-    );
+CREATE TABLE maestros (
+  id      SERIAL PRIMARY KEY,
+  nombre  TEXT NOT NULL
+);
 
-    CREATE TABLE grupos (
-        periodo VARCHAR(10) NOT NULL,
-        seccion VARCHAR(10) NOT NULL,
-        nombre_grupo VARCHAR(50) NOT NULL,
-        id_maestro INTEGER NOT NULL,
-        PRIMARY KEY (periodo, seccion),
-        FOREIGN KEY (id_maestro) REFERENCES maestros(id_maestro)
-            ON DELETE RESTRICT
-            ON UPDATE CASCADE
-    );
+CREATE TABLE grupos (
+  id          SERIAL PRIMARY KEY,
+  nombre      TEXT NOT NULL,
+  maestro_id  INTEGER NOT NULL REFERENCES maestros(id)
+);
 
-    CREATE TABLE inscripciones (
-        matricula VARCHAR(20) NOT NULL,
-        periodo VARCHAR(10) NOT NULL,
-        seccion VARCHAR(10) NOT NULL,
-        fecha_inscripcion DATE NOT NULL,
-        FOREIGN KEY (matricula) REFERENCES alumnos(matricula)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
-        FOREIGN KEY (periodo, seccion) REFERENCES grupos(periodo, seccion)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
-        PRIMARY KEY (matricula, periodo, seccion)
-    );
+-- Relación alumno-grupo
+CREATE TABLE inscripciones (
+  id         SERIAL PRIMARY KEY,
+  alumno_id  INTEGER NOT NULL REFERENCES alumnos(id),
+  grupo_id   INTEGER NOT NULL REFERENCES grupos(id),
+  UNIQUE (alumno_id, grupo_id)
+);
 
-    CREATE TABLE asistencia (
-        matricula VARCHAR(20) NOT NULL,
-        periodo VARCHAR(10) NOT NULL,
-        seccion VARCHAR(10) NOT NULL,
-        fecha_hora TIMESTAMP NOT NULL,
-        presente BOOLEAN NOT NULL,
-        FOREIGN KEY (matricula) REFERENCES alumnos(matricula)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
-        FOREIGN KEY (periodo, seccion) REFERENCES grupos(periodo, seccion)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
-        PRIMARY KEY (matricula, periodo, seccion, fecha_hora)
-    );
-    
+-- Registro de asistencia por inscripción y fecha
+CREATE TABLE asistencia (
+  id              SERIAL PRIMARY KEY,
+  inscripcion_id  INTEGER NOT NULL REFERENCES inscripciones(id),
+  fecha           DATE    NOT NULL,
+  presente        BOOLEAN NOT NULL DEFAULT TRUE,
+  UNIQUE (inscripcion_id, fecha)
+);
